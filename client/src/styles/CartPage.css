@@ -1,0 +1,61 @@
+.container {
+
+    width: 1024px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    background-color: white;
+    font-size: 24px;
+    color: tomato;
+
+}
+
+.container h4 {
+    font-size: 18px;
+}
+
+.card-img-top {
+    width: 80%;
+    height: 160px;
+}
+
+.cart .card {
+    background-color: white;
+    border-radius: 10px;
+}
+
+button {
+    background-color: tomato;
+}
+
+.cart-info p {
+    font-size: 14px;
+}
+
+.remove-btn {
+    font-size: 12px;
+}
+
+.right {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.right h2 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.right p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.payment-sec {
+    font-size: 14px;
+    font-weight: 400px;
+    border-radius: 10px;
+}

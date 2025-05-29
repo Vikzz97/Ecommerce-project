@@ -110,77 +110,79 @@ const HomePage = () => {
 
   return (
     <Layout title={"All Products-Best offers "}>
-      <div className="row">
-        <div className="col-md-3">
-          <h4 className="text-center">Filter By Category</h4>
-          <div className="d-flex flex-column m-1">
-            {
-              categories.map((c) => (
-                <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
-                  {c.name}
-                </Checkbox>
-              ))
-            }
-          </div>
-          {/* price filter */}
-          <h4 className="text-center">Filter By Price</h4>
-          <div className="d-flex flex-column mb-3">
-            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-              {Prices?.map((p) => (
-                <div key={p._id}>
-                  <Radio value={p.array}>{p.name}</Radio>
-                </div>
-              ))}
-            </Radio.Group>
-          </div>
-          <div className="d-flex flex-column m-2 p-2">
-            <button
-              className="btn btn-danger"
-              onClick={() => window.location.reload()}
-            >
-              RESET FILTERS
-            </button>
-          </div>
-        </div>
-
-        <div className="col-md-9">
-          <h2 className="text-center">All Products</h2>
-          <div className="d-flex flex-wrap">
-            {
-              products?.map(p => (
-                <div className="card m-2" style={{ width: '18rem' }} >
-                  <img src={`/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt={p.name} />
-                  <div className="card-body">
-                    <h5 className="card-title">{p.name}</h5>
-                    <p className="card-text">{p.description.substring(0, 30)}...</p>
-                    <p className="card-text">$ {p.price}</p>
-                    <button onClick={() => navigate(`/product/${p.slug}`)} className="btn btn-primary ms-1">More Details</button>
-                    <button
-                      className="btn btn-secondary ms-1"
-                      onClick={() => {
-                        setCart([...cart, p])
-                        localStorage.setItem(
-                          "cart",
-                          JSON.stringify([...cart, p])
-                        );
-                        toast.success("Item Added to cart");
-                      }}
-                    >
-                      ADD TO CART
-                    </button>
+      <div className='container'>
+        <div className="row ms-auto ">
+          <div className="filtr-section col-md-3">
+            <div className="cat-filtr d-flex flex-column m-1">
+              <p className="">Filter By Category</p>
+              {
+                categories.map((c) => (
+                  <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
+                    {c.name}
+                  </Checkbox>
+                ))
+              }
+            </div>
+            {/* price filter */}
+            <div className="price-filtr d-flex flex-column mb-3">
+              <p className="">Filter By Price</p>
+              <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                {Prices?.map((p) => (
+                  <div key={p._id}>
+                    <Radio value={p.array}>{p.name}</Radio>
                   </div>
-                </div>
-              ))}
-          </div>
-          <div className="m-2 p-3">
-            {products && products.length < total && (
-              <button className="btn btn-warning" onClick={(e) => {
-                e.preventDefault();
-                setPage(page + 1)
-              }}>
-                {loading ? "Loading..." : "Loadmore"}
+                ))}
+              </Radio.Group>
+            </div>
+            <div className="reset-btn d-flex flex-column m-2 p-2">
+              <button
+                className="btn btn-danger"
+                onClick={() => window.location.reload()}
+              >
+                RESET FILTERS
               </button>
-            )}
+            </div>
+          </div>
+
+          <div className="all-product col-md-9">
+            {/* <h2 className="">All Products</h2> */}
+            <div className="product-body">
+              {
+                products?.map(p => (
+                  <div className="product-card m-2" >
+                    <img src={`/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt={p.name} />
+                    <div className="card-body">
+                      <h5 className="card-title">{p.name}</h5>
+                      <p className="card-text">{p.description.substring(0, 30)}...</p>
+                      <p className="card-text">$ {p.price}</p>
+                      <button onClick={() => navigate(`/product/${p.slug}`)} className="btn btn-primary ms-1">More Details</button>
+                      <button
+                        className="btn btn-secondary ms-1"
+                        onClick={() => {
+                          setCart([...cart, p])
+                          localStorage.setItem(
+                            "cart",
+                            JSON.stringify([...cart, p])
+                          );
+                          toast.success("Item Added to cart");
+                        }}
+                      >
+                        ADD TO CART
+                      </button>
+                    </div>
+                  </div>
+                ))}
+            </div>
+            <div className="m-2 p-3">
+              {products && products.length < total && (
+                <button className="btn btn-warning" onClick={(e) => {
+                  e.preventDefault();
+                  setPage(page + 1)
+                }}>
+                  {loading ? "Loading..." : "Loadmore"}
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

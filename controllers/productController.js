@@ -4,6 +4,7 @@ import categoryModel from "../models/categoryModel.js"
 import fs from 'fs'
 import braintree from "braintree";
 import dotenv from 'dotenv'
+import orderModel from "../models/orderModel.js";
 
 
 dotenv.config();
@@ -227,7 +228,7 @@ export const productCountController = async (req, res) => {
 // product list based on page
 export const productListController = async (req, res) => {
     try {
-        const perPage = 3;
+        const perPage = 6;
         const page = req.params.page ? req.params.page : 1;
         const products = await productModel
             .find({})
