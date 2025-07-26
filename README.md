@@ -8,7 +8,7 @@ A full-stack ecommerce web application built with **React**, **Node.js**, and **
 - 🛍️ Product Listings and Detail Pages
 - 🛒 Shopping Cart Functionality
 - 💳 Checkout and Order Summary (UI)
-- 📦 Admin Panel for Product Management (optional)
+- 📦 Admin Panel for Product Management
 - 📱 Responsive Design for all devices
 
 ## 🏗️ Tech Stack
@@ -21,7 +21,7 @@ A full-stack ecommerce web application built with **React**, **Node.js**, and **
 **Backend:**
 - Node.js
 - Express
-- (Optional) MongoDB or placeholder for future database integration
+- MongoDB for database integration
 
 ## 📁 Project Structure
 
@@ -66,14 +66,18 @@ npm start
 
 ## 📸 Screenshots
 
-> Add screenshots from the `/client/public/images/` folder here (home page, cart, product details).
+>  screenshots from the `/client/public/images/` folder here (home page, cart, product details).
+> <img width="1366" height="722" alt="Screenshot (456)" src="https://github.com/user-attachments/assets/aba2bda0-e074-492c-ba9c-75ee2fc99a6e" />
+<img width="1366" height="721" alt="Screenshot (460)" src="https://github.com/user-attachments/assets/80219eb4-66c1-4e03-8a81-c0a7d3479e05" />
+
+
 
 ## 📌 TODOs
 
-- Add backend integration with a real database (MongoDB/MySQL)
-- Implement payment gateway (e.g., Stripe, Razorpay)
-- Add user/admin dashboards
-- Improve form validation and user feedback
+- Added backend integration with a real database (MongoDB)
+- Implemented payment gateway (e.g., Stripe, Razorpay)
+- Added user/admin dashboards
+- Improved form validation and user feedback
 
 ## 📃 License
 
